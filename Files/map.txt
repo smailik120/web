@@ -1,0 +1,1 @@
+[{"value": "sos1", "index": 1, "class": "b2"}, {"value": "sos2", "index": 2, "class": "b1"}, {"value": "sos3", "index": 3, "class": "b2"}, {"value": "sos4", "index": 4, "class": "b1"}]

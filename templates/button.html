@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+  <link rel="stylesheet" type="text/css" href={{url_for('static', filename='buttoner.css')}}>
+  <meta charset="utf-8">
+  <title>Кнопка</title>
+
+     <script>
+         function act(x){
+
+         var elem=document.getElementById(x);
+
+         elem.disabled=true;
+
+         var t={{result_click|tojson}};
+
+         }
+
+
+     </script>
+ </head>
+ <body>
+  <form action="/waiting" method="POST">
+       {% for post in posts %}
+
+      <input   type="button"   class={{post.class}} value={{post.value}}  id={{post.idd}} onclick="act(id)" >
+      <input  type="hidden" class="Empty" name={{post.idd}} value={{post.people}}>
+ {% if post.index%4==0 %}
+                 <p></p>
+         {% endif %}
+       {% endfor %}
+      <input name="text">
+      <input type="submit" value="Наберите координаты участка который хотите выбрать." onclick="act(id)" id="your choose">
+  </form>
+ </body>
+</html>
