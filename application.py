@@ -1,20 +1,27 @@
 from flask import Flask, request
-
+from flask import render_template
+from workwithbd import bd
+import sqlite3
 app = Flask(__name__)
+# -*- coding: utf-8 -*-
+import sqlite3
+database=bd()
 
-def sum(a):
-    t=0
-    for i in a:
-        t=t+int(i)
-    return t
-@app.route("/")
+@app.route("/",methods=['GET'])
 def hello():
-    return '<form action="/" method="GET"><input name="text"><input type="submit" value="INput"></form>'
+   return render_template("Registration.html")
 
 
+@app.route("/lk",methods=['POST'])
+def func1():
+    input1=request.form['text']
+    input2=request.form['text1']
+    database.add_user(input1,input2)
+    database.prin_database()
+    return render_template("result.html")
 @app.route("/",methods=['GET','POST'])
 def echo():
-    return "You said: " + request.form
+    return ""
 
 
 if __name__ == "__main__":
