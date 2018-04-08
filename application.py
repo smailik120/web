@@ -5,7 +5,7 @@ import sqlite3
 app = Flask(__name__)
 # -*- coding: utf-8 -*-
 import sqlite3
-database=bd()
+database=bd('dat.sqlite')
 
 @app.route("/",methods=['GET'])
 def hello():
@@ -18,7 +18,7 @@ def func1():
     input2=request.form['text1']
     database.add_user(input1,input2)
     database.prin_database()
-    return render_template("result.html")
+    return render_template("result.html",input1=input1)
 @app.route("/",methods=['GET','POST'])
 def echo():
     return ""
