@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="/lk" method="POST">
-<h1>Введите логин:</h1>
-<input name="text">
-<h1>Введите пароль:</h1>
-<input name="text1">
+<html>
+    <head>
+    </head>
+    <body>
+   <form action="/registration" method="POST">
+<h1>(Логин должен быть более 5 символов)</h1>
+        <p></p>
+      <h1>Введите логин:</h1>
+<input name="login">
+<h1>(Пароль должен быть более 5 символов)</h1>
+       <p></p>
+      <h1>Введите пароль:</h1>
+<input name="password">
+       <h1>Введите свое имя</h1>
+<input name="name">
+       <h1>Введите свою фамилию:</h1>
+<input name="family">
 <p></p>
 <input type="submit" value="Регистрация" class="b1">
-</form>
-</body>
+   </form>
+    {% if wrong!='' %}
+    <h1>{{wrong}}</h1>
+    {% endif %}
+    </body>
 </html>
